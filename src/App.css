@@ -1,0 +1,115 @@
+/* tags */
+button {
+  border: 1px solid gray;
+  padding: 0.4em 1.0em;
+  margin: 1px 0px 1px;
+  background-color: rgb(242, 236, 149);
+  white-space: nowrap;
+}
+
+button:hover {
+  border-color: rgb(249, 0, 0);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+td {
+  vertical-align: top;
+}
+
+table {
+  border-spacing: 1px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* classes */
+.tab {
+  padding-left: 3%;
+}
+
+.more-data {
+  background-color: lightgray;
+}
+
+.main-screen {
+  display:flex;
+  flex-direction: column;
+  border-color:black;
+  border-width: 1px;
+  border-style: solid;
+  border-radius:50px;
+  width: 300px;
+  text-align: center;
+  padding: 5% 2% 10% 2%;
+}
+
+.container {
+  display: flex;
+}
+.container.space-between {  
+  justify-content: space-between;
+}
+
+.container:only-child {
+  justify-content: left;
+}
+
+.section {
+  padding: 1px;
+  margin: 1px;
+}
+
+.section-border {
+  border-color:black;
+  border-width: 1px;
+  border-style: solid;
+  width: 300px;
+  padding: 10px;
+}
+
+.section-item-border {
+  display:flex;
+  flex-direction: column;
+  border: 1px solid black;
+  text-align: left;
+  flex-shrink: 0;
+  flex-grow: 1;
+  padding: 0% 5% 3% 2%;
+  overflow-wrap: break-word;
+  margin-bottom: 2%;
+}
+
+.section-item-border table tr td:first-child {
+  white-space: nowrap;
+  width: 1%;
+}
+
+.user-other-data {
+  background-color: lightgray;
+  border: 1px solid black;
+  border-radius:8px;
+  padding: 0% 2% 0% 2%;
+}
+
+.add-item-dialog {
+  padding: 5% 5% 5% 5%;
+  text-align: center;
+}
+
+.add-item-dialog div {
+  text-align: right;
+}
+
+.add-item-dialog button {
+  margin-right: 1%;
+}
+
+.add-item-dialog input {
+  margin-bottom: 1%;
+}
