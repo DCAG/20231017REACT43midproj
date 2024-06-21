@@ -1,10 +1,10 @@
 import { useState, useEffect, useMemo } from 'react'
 import './App.css'
-import utils from './utils.js'
-import UsersList from './components/UsersList.tsx'
-import PostsList from './components/PostsList.tsx'
-import TasksList from './components/TasksList.tsx'
-import UserAdd from './components/UserAdd.tsx'
+import utils from './utils'
+import UsersList from './components/UsersList'
+import PostsList from './components/PostsList'
+import TasksList from './components/TasksList'
+import UserAdd from './components/UserAdd'
 import * as JPHTypes from './types'
 
 function App() {
