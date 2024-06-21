@@ -1,10 +1,11 @@
-/* tags */
+/* #region: tags */
 button {
   border: 1px solid gray;
-  padding: 0.4em 1.0em;
+  padding: 0.4em 1em;
   margin: 1px 0px 1px;
   background-color: rgb(242, 236, 149);
   white-space: nowrap;
+  height: max-content;
 }
 
 button:hover {
@@ -20,96 +21,254 @@ td {
   vertical-align: top;
 }
 
-table {
-  border-spacing: 1px;
-}
-
 * {
   box-sizing: border-box;
 }
 
-/* classes */
-.tab {
-  padding-left: 3%;
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
-.more-data {
-  background-color: lightgray;
-}
-
-.main-screen {
-  display:flex;
-  flex-direction: column;
-  border-color:black;
-  border-width: 1px;
-  border-style: solid;
-  border-radius:50px;
-  width: 300px;
-  text-align: center;
-  padding: 5% 2% 10% 2%;
-}
-
-.container {
+/* #endregion */
+/* #region: classes */
+.base {
   display: flex;
 }
-.container.space-between {  
+
+.pane {
+  height: min-content;
+  text-align: center;
+}
+
+.pane.main {
+  border: black solid 1px;
+  border-radius: 25px;
+  padding: 16px;
+  margin-right: 8px;
+  max-width: 400px;
+}
+
+.pane.secondary {
+  /* border-radius: 25px; */
+  /* max-width: 300px; */
+}
+
+/* there might not be main-bottom */
+.main-top {
+  margin-bottom: 15px;
+  display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-.container:only-child {
-  justify-content: left;
+.main-top--search {
+  margin-left: 4px;
+  margin-right: 4px;
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 
-.section {
-  padding: 1px;
-  margin: 1px;
+.userslist { 
+  /* padding: 1px; */
+  /* margin: 1px; */
+}
+/* #region: user-add */
+.user-add h1 {
+  font-size: large;
 }
 
-.section-border {
-  border-color:black;
+.user-add-form {
+  border-color: black;
   border-width: 1px;
+  padding: 10px;
   border-style: solid;
   width: 300px;
-  padding: 10px;
+  display: grid;
+  grid-template-rows: max-content max-content;
+  grid-gap: 4px;
 }
 
-.section-item-border {
-  display:flex;
+.user-add-form--fields {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-gap: 4px;
+}
+
+.user-add-form--actions {
+  justify-self: right;
+}
+
+.user-add-form--actions button {
+  margin-left: 4px;
+}
+/* #endregion */
+/* #region: user-item */
+.user-item {
+  display: flex;
   flex-direction: column;
   border: 1px solid black;
   text-align: left;
   flex-shrink: 0;
   flex-grow: 1;
-  padding: 0% 5% 3% 2%;
+  padding: 4px;
   overflow-wrap: break-word;
   margin-bottom: 2%;
+
+  /* override with .all-tasks-completed */
+  border-color: red;
+  /* override with .selected */
+  /* background-color: white; */
 }
 
-.section-item-border table tr td:first-child {
-  white-space: nowrap;
-  width: 1%;
+.user-item.selected {
+  background-color: orange;
 }
 
-.user-other-data {
+.user-item.all-tasks-completed {
+  border-color: green;
+}
+
+.user-item--fields-basic {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-gap: 4px;
+  margin-bottom: 4px;
+  margin-top: 6px;
+}
+
+.user-item--otherdata_and_actions{
+  display: flex;
+  flex-direction: column;
+}
+
+.user-item--otherdata_and_actions.closed {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.user-item--show_otherdata_btn {
+  background-color: gray;
+  border: solid darkslategrey 1px;
+  align-self: flex-start;
+}
+
+.user-item--fields-otherdata {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-gap: 4px;
   background-color: lightgray;
-  border: 1px solid black;
-  border-radius:8px;
-  padding: 0% 2% 0% 2%;
+  border: 1px black solid;
+  border-radius: 8px;
+  padding: 4px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  width: 100%;
 }
 
-.add-item-dialog {
-  padding: 5% 5% 5% 5%;
-  text-align: center;
+.user-item--actions {
+  align-self: flex-end;
+  display: flex;
 }
 
-.add-item-dialog div {
-  text-align: right;
+.user-item--actions button {
+  margin-left: 4px;
+}
+/* #endregion */
+/* #region: lists (tasks and posts - under pane secondary) */
+.lists {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.add-item-dialog button {
-  margin-right: 1%;
+.postslist,
+.taskslist {
+  margin-bottom: 8px;
+  flex: 1 1 230px;
+  margin-left: 4px;
+  max-width: 300px;
 }
 
-.add-item-dialog input {
-  margin-bottom: 1%;
+@media (max-width: 600px) {
+  .lists {
+    flex-direction: column;
+  }
+
+  .taskslist,
+  .postslist {
+    max-width: 100%;
+  }
 }
+
+.postslist-top,
+.taskslist-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+  align-items: center;
+}
+
+.postslist-top h1,
+.taskslist-top h1 {
+  font-size: large;
+}
+
+.postslist-bottom,
+.taskslist-bottom {
+  border: solid 1px black;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+}
+/* #region: <list-item>-add */
+.post-add,
+.task-add {
+  display: grid;
+  grid-template-rows: max-content 1fr;
+  grid-gap: 4px;
+}
+
+.post-add--fields,
+.task-add--fields {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-gap: 4px;
+}
+
+.post-add--fields textarea,
+.task-add--fields textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+.post-add--actions,
+.task-add--actions {
+  justify-self: right;
+}
+
+.post-add--actions button,
+.task-add--actions button {
+  margin-left: 4px;
+}
+/* #endregion */
+/* #region: <list-item>-item */
+.post-item,
+.task-item {
+  display: grid;
+  grid-template-columns: max-content 2fr;
+  grid-gap: 4px;
+  border: solid 1px black;
+  margin-bottom: 4px;
+  padding: 4px;
+  width: 100%;
+  justify-items: left;
+  text-align: left;
+}
+
+.task-item--completed_status_actions {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+/* #endregion */
+/* #endregion */
